@@ -1,5 +1,5 @@
 ({
-    '8world.com': { _name: '8视界', '.': [{ title: '分类', docs: 'https://docs.rsshub.app/new-media.html#_8-shi-jie-fen-lei', source: ['/:category', '/'], target: '/8world/:category?' }] },
+    // '8world.com': { _name: '8视界', '.': [{ title: '分类', docs: 'https://docs.rsshub.app/new-media.html#_8-shi-jie-fen-lei', source: ['/:category', '/'], target: '/8world/:category?' }] },
     'aamacau.com': { _name: '論盡媒體 AllAboutMacau Media', '.': [{ title: '话题', docs: 'https://docs.rsshub.app/new-media.html#lun-jin-mei-ti-allaboutmacau-media-hua-ti', source: ['/'], target: '/:category?/:id?' }] },
     'eprice.com.tw': { _name: 'ePrice', '.': [{ title: 'ePrice 比價王', docs: 'https://docs.rsshub.app/new-media.html#eprice', source: ['/'], target: '/:region?' }] },
     'eprice.com.hk': { _name: 'ePrice', '.': [{ title: 'ePrice 香港', docs: 'https://docs.rsshub.app/new-media.html#eprice', source: ['/'], target: '/:region?' }] },
@@ -308,24 +308,6 @@
             { title: '教务处实践科学科通知', docs: 'https://docs.rsshub.app/university.html#yun-nan-da-xue', source: '/*', target: '/jwc/4' },
         ],
         grs: [{ title: '研究生院通知', docs: 'https://docs.rsshub.app/university.html#yun-nan-da-xue', source: '/*', target: '' }],
-    },
-    'kuaidi100.com': {
-        _name: '快递100',
-        '.': [
-            {
-                title: '快递追踪',
-                docs: 'https://docs.rsshub.app/other.html#kuai-di-100',
-                source: '/',
-                target: (params, url, document) => {
-                    const postid = document && document.querySelector('#postid').value;
-                    const com = document && document.querySelector('#selectComBtn').childNodes[1].attributes[1].value;
-                    if (com && com !== 'default' && postid) {
-                        return `/kuaidi100/track/${com}/${postid}`;
-                    }
-                },
-            },
-            { title: '支持的快递公司列表', docs: 'https://docs.rsshub.app/other.html#kuai-di-100', source: '/', target: '/kuaidi100/company' },
-        ],
     },
     'japanpost.jp': {
         _name: '日本郵便',
@@ -728,20 +710,6 @@
     },
     'huya.com': { _name: '虎牙直播', '.': [{ title: '直播间开播', docs: 'https://docs.rsshub.app/live.html#hu-ya-zhi-bo-zhi-bo-jian-kai-bo', source: '/:id', target: '/huya/live/:id' }] },
     'craigslist.org': { _name: 'Craigslist', '.': [{ title: '商品搜索列表', docs: 'https://docs.rsshub.app/shopping.html#craigslist' }] },
-    'saraba1st.com': {
-        _name: 'Saraba1st',
-        bbs: [
-            {
-                title: '帖子',
-                docs: 'https://docs.rsshub.app/bbs.html#saraba1st',
-                source: '/2b/:id',
-                target: (params) => {
-                    const id = params.id.includes('thread') ? params.id.split('-')[1] : '';
-                    return id ? `/saraba1st/thread/${id}` : '';
-                },
-            },
-        ],
-    },
     'scboy.com': {
         _name: 'scboy 论坛',
         www: [
